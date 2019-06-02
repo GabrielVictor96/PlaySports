@@ -24,14 +24,17 @@ namespace PlaySports.Controllers
         private readonly IAgendaAppService _agendaAppService;
         private readonly INovoMatchAppService _novoMatchAppService;
         private readonly IUserAppService _userAppService;
+        private readonly INotaAppService _notaAppService;
 
+        private static string criador;
 
-        public AgendaController(INotificationHandler<DomainNotification> notifications, IAgendaAppService agendaAppService, INovoMatchAppService novoMatchAppService, IUserAppService userAppService)
+        public AgendaController(INotificationHandler<DomainNotification> notifications, IAgendaAppService agendaAppService, INovoMatchAppService novoMatchAppService, IUserAppService userAppService, INotaAppService notaAppService)
             : base(notifications)
         {
             _agendaAppService = agendaAppService;
             _novoMatchAppService = novoMatchAppService;
             _userAppService = userAppService;
+            _notaAppService = notaAppService;
         }
 
 
@@ -210,6 +213,7 @@ namespace PlaySports.Controllers
             if (agendaViewModel.Membro9 == null)
                 agendaViewModel.Membro9 = "Sem Cadastro";
 
+            criador = agendaViewModel.Criador;
 
             return View(agendaViewModel);
         }
@@ -222,7 +226,22 @@ namespace PlaySports.Controllers
 
             _agendaAppService.Edit(agendaViewModel.Id, "0");
 
+            NotaViewModel notaViewModel = new NotaViewModel
+            {
+                AgendaId = Convert.ToString(agendaViewModel.Id),
+                Criador = criador,
+                NotaMembro1 = agendaViewModel.Membro1,
+                NotaMembro2 = agendaViewModel.Membro2,
+                NotaMembro3 = agendaViewModel.Membro3,
+                NotaMembro4 = agendaViewModel.Membro4,
+                NotaMembro5 = agendaViewModel.Membro5,
+                NotaMembro6 = agendaViewModel.Membro6,
+                NotaMembro7 = agendaViewModel.Membro7,
+                NotaMembro8 = agendaViewModel.Membro8,
+                NotaMembro9 = agendaViewModel.Membro9
+            };
 
+            _notaAppService.Add(notaViewModel);
 
 
             AlertToast("Avaliar", "Membros avaliados com sucesso!", NotificationType.Success);
