@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mutant.Test.Application\PlaySports.Application.csproj" />
+    <ProjectReference Include="..\Mutant.Test.Domain.Core\PlaySports.Domain.Core.csproj" />
+    <ProjectReference Include="..\Mutant.Test.Infra.CrossCutting.Bus\PlaySports.Infra.CrossCutting.Bus.csproj" />
+    <ProjectReference Include="..\Mutant.Test.Infra.Data\PlaySports.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

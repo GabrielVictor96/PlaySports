@@ -1,0 +1,115 @@
+﻿@using PlaySports.Domain.Core.Enums
+@model PlaySports.Application.ViewModels.RegisterUserViewModel
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-uppercase text-dark font-weight-bold">Registrar</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row no-gutters">
+        <form asp-action="Create" enctype="multipart/form-data" method="post" class="col-12 col-lg-6">
+            <h4 class="text-uppercase">Informações pessoais</h4>
+            <div class="form-group">
+                <label asp-for="Imagem" class="col-form-label"></label>
+                <input type="file" name="arquivos" />
+                <br />
+                <input type="submit" asp-action="UploadImagem" value="Upload" class="btn btn-primary text-uppercase" />
+            </div>
+                <div class="form-group">
+                    <label asp-for="Nome" class="col-form-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @foreach (var value in Enum.GetValues(typeof(Sexo)))
+                    {
+                    <div class="">
+                        <input type="radio" asp-for="Sexo" value="@value" />
+                        <label asp-for="Sexo">@value.ToString()</label>
+                    </div>
+                    }
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataNascimento" class="col-form-label"></label>
+                    <input asp-for="DataNascimento" class="form-control" />
+                    <span asp-validation-for="DataNascimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Esporte" class="col-form-label"></label>
+                    <select asp-for="Esporte" class="form-control">
+                        <option>Atletismo</option>
+                        <option>Basquete</option>
+                        <option>Capoeira</option>
+                        <option>Corrida de Rua</option>
+                        <option>Futebol</option>
+                        <option>Futsal</option>
+                        <option>Hipismo</option>
+                        <option>Jiu-Jitsu</option>
+                        <option>Karate</option>
+                        <option>Natação</option>
+                        <option>Tênis</option>
+                        <option>Tênis de Mesa</option>
+                        <option>Vôleibol</option>
+                        <option>Xadrez</option>
+                    </select>
+                    <span asp-validation-for="Esporte" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nivel" class="col-form-label"></label>
+                    <select asp-for="Nivel" class="form-control">
+                        <option>Amador</option>
+                        <option>Intermediário</option>
+                        <option>Profissional</option>
+                    </select>
+                    <span asp-validation-for="Nivel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Localizacao" class="col-form-label"></label>
+                    <select asp-for="Localizacao" class="form-control">
+                        <option>Americana</option>
+                        <option>Artur Nogueira</option>
+                        <option>Campinas</option>
+                        <option>Cosmópolis</option>
+                        <option>Engenheiro Coelho</option>
+                        <option>Holambra</option>
+                        <option>Hortolândia</option>
+                        <option>Indaiatuba</option>
+                        <option>Itatiba</option>
+                        <option>Jaguariúna</option>
+                        <option>Monte Mor</option>
+                        <option>Paulínia</option>
+                        <option>Valinhos</option>
+                        <option>Vinhedo</option>
+                    </select>
+                    <span asp-validation-for="Localizacao" class="text-danger"></span>
+                </div>
+                <h4 class="text-uppercase">Informações de usuário</h4>
+                <div class="form-group">
+                    <label asp-for="Login" class="col-form-label"></label>
+                    <input asp-for="Login" class="form-control" />
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Senha" class="col-form-label"></label>
+                    <input asp-for="Senha" type="password" class="form-control" />
+                    <span asp-validation-for="Senha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmarSenha" class="col-form-label"></label>
+                    <input asp-for="ConfirmarSenha" type="password" class="form-control" />
+                    <span asp-validation-for="ConfirmarSenha" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+                    <input type="submit" value="Registrar" class="btn btn-primary text-uppercase" />
+                </div>
+        </form>
+        <div class="col-12 col-lg-6">
+            <vc:summary />
+        </div>
+    </div>
+</div>

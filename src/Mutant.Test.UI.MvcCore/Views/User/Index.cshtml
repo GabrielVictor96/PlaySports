@@ -1,0 +1,60 @@
+﻿@using PlaySports.UI.MvcCore.Utils
+@using X.PagedList.Mvc.Core
+@model X.PagedList.PagedList<PlaySports.Application.ViewModels.UserViewModel>
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<div class="container">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+        <h1 class="text-uppercase text-dark font-weight-bold">Editar</h1>
+        <a class="btn btn-lg btn-primary text-uppercase" asp-action="Create">Novo usuário</a>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info rounded-0">
+                <h5>Nenhum usuário encontrado.</h5>
+            </div>
+        }
+        else
+        {
+            var user = User.Identity.Name;
+
+            <table class="table table-sm table-light table-hover">
+                <thead>
+                    <tr>
+                        <th class="w-25"></th>
+                        <th class="text-uppercase">Nome</th>
+                        <th class="text-uppercase">Nome de login</th>
+                        <th class="text-uppercase">Sexo</th>
+                        <th class="text-uppercase">Data nascimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model)
+                    {
+                        if (row.Nome == user)
+                        {
+                        <tr>
+                            <td class="w-25">
+                                <a asp-action="Details" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Ver</a>
+                                <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Atualizar</a>
+                                <a asp-action="Delete" asp-route-id="@row.Id" class="btn btn-sm btn-danger text-uppercase">Remover</a>
+                            </td>
+                            <td>@row.Nome</td>
+                            <td>@row.Login</td>
+                            <td>@row.Sexo</td>
+                            <td>@row.DataNascimento.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = page }), XPagedListOptions.GetRenderOptions())
+        }
+    </div>
+</div>

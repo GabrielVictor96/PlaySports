@@ -1,0 +1,8 @@
+﻿@if ((int)TempData["ErrorNotificationCount"] > 0)
+{
+    <div class="alert bg-dark rounded ml-lg-4 ml-0">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h5 id="msgRetorno" class="text-uppercase text-white font-weight-bold">Oops! Algo deu errado:</h5>
+        <div asp-validation-summary="ModelOnly" class="text-light list-unstyled"></div>
+    </div>
+}

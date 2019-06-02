@@ -1,0 +1,49 @@
+﻿@model PlaySports.Application.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="text-uppercase text-dark font-weight-bold">Detalhes</h1>
+    </div>
+</div>
+
+<div class="post-content">
+    <style>
+        img {
+            max-width: 20%;
+            height: auto;
+        }
+    </style>
+    <dl class="container">
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Imagem)</dt>
+    </dl>
+    <img src="@ViewBag.DadosImagem">
+</div>
+<div class="container">
+    <dl class="">          
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd>@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Sexo)</dt>
+        <dd>@Html.DisplayFor(model => model.Sexo)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.DataNascimento)</dt>
+        <dd>@Html.DisplayFor(model => model.DataNascimento)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Esporte)</dt>
+        <dd>@Html.DisplayFor(model => model.Esporte)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Nivel)</dt>
+        <dd>@Html.DisplayFor(model => model.Nivel)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Localizacao)</dt>
+        <dd>@Html.DisplayFor(model => model.Localizacao)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Login)</dt>
+        <dd>@Html.DisplayFor(model => model.Login)</dd>
+    </dl>
+
+    <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+</div>

@@ -1,0 +1,6 @@
+﻿@if (TempData["Notification"] != null)
+{
+    <script type="text/javascript">
+        @Html.Raw(TempData["Notification"])
+    </script>
+}

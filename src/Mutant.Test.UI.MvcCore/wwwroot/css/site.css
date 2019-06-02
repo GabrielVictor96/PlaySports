@@ -1,0 +1,23 @@
+﻿* {
+    font-family: Calibri !important
+}
+
+.bg-gray {
+    background-color: #e9ecef !important;
+}
+
+.jumbotron {
+    -ms-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -ms-border-top-right-radius: 0;
+    border-top-right-radius: 0
+}
+
+.minvh-100 {
+    min-height: 100vh;
+}
+
+.mvh-15 {
+    margin-bottom: 15vh 
+}
+

@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Http.Extensions
+
+<ul id="navLogin" class="navbar-nav d-flex align-self-start align-self-lg-end flex-column flex-lg-row list-unstyled">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="nav-item">
+            <a asp-controller="Authentication" asp-action="Logout" asp-route-returnUrl="@Context.Request.GetEncodedPathAndQuery()" class="nav-link text-uppercase">Sair</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a asp-controller="Authentication" asp-action="Login" class="nav-link text-uppercase">Entrar</a>
+        </li>
+    }
+</ul>
