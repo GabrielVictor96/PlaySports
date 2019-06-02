@@ -40,8 +40,8 @@ namespace PlaySports.Controllers
         public async Task<IActionResult> Index(int pagina = 1)
         {
             var users = await _agendaAppService.Atividades(User.Identity.Name);
-
-
+     
+            
             return View(new PagedList<AgendaViewModel>(users, pagina, 10));
         }
         
@@ -170,12 +170,62 @@ namespace PlaySports.Controllers
 
         [HttpGet]
         [Route("{id}/delete")]
-        public IActionResult Delete(Guid? id)
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var agendaViewModel = await _agendaAppService.GetAtividadeByIdAsync(id.Value);
+            if (agendaViewModel == null)
+            {
+                return NotFound();
+            }
+
+            if (agendaViewModel.Membro1 == null)
+                agendaViewModel.Membro1 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro2 == null)
+                agendaViewModel.Membro2 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro3 == null)
+                agendaViewModel.Membro3 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro4 == null)
+                agendaViewModel.Membro4 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro5 == null)
+                agendaViewModel.Membro5 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro6 == null)
+                agendaViewModel.Membro6 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro7 == null)
+                agendaViewModel.Membro7 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro8 == null)
+                agendaViewModel.Membro8 = "Sem Cadastro";
+
+            if (agendaViewModel.Membro9 == null)
+                agendaViewModel.Membro9 = "Sem Cadastro";
+
+
+            return View(agendaViewModel);
+        }
+
+        [HttpPost, ActionName("Avaliar")]
+        [Route("{id:guid}/avaliar")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Avaliar([Bind("Id, Criador, Membro1, Membro2, Membro3, Membro4, Membro5, Membro6, Membro7, Membro8, Membro9, Atividade, Local, Data")] AgendaViewModel agendaViewModel)
         {
 
+            _agendaAppService.Edit(agendaViewModel.Id, "0");
 
 
-            return View();
+
+            AlertToast("Avaliar", "Membros avaliados com sucesso!", NotificationType.Success);
+            return RedirectToAction("Index");
         }
     }
 }

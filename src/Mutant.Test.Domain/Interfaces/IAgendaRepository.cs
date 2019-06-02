@@ -12,5 +12,6 @@ namespace PlaySports.Domain.Interfaces
         void Add(Agenda agenda);
         Task<IEnumerable<ListAgendaCommand>> Atividades(string usuario);
         Task<ListAgendaCommand> GetAtividadeByIdAsync(Guid atividadeId);
+        object Edit(Guid atividadeId, string inativar);
     }
 }

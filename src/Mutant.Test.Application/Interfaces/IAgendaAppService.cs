@@ -11,5 +11,6 @@ namespace PlaySports.Application.Interfaces
         void Add(AgendaViewModel agendaUserViewModel);
         Task<IEnumerable<AgendaViewModel>> Atividades(string usuario);
         Task<AgendaViewModel> GetAtividadeByIdAsync(Guid atividadeId);
+        object Edit(Guid atividadeId, string inativar);
     }
 }

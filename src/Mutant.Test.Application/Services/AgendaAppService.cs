@@ -38,5 +38,10 @@ namespace PlaySports.Application.Services
         {
             return _mapper.Map<Task<AgendaViewModel>>(_agendaRepository.GetAtividadeByIdAsync(atividadeId));
         }
+
+        public object Edit(Guid atividadeId, string inativar)
+        {
+            return _mapper.Map<Task<AgendaViewModel>>(_agendaRepository.Edit(atividadeId,inativar));
+        }
     }
 }

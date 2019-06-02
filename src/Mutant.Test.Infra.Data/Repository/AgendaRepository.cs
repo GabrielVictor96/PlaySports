@@ -61,5 +61,15 @@ namespace PlaySports.Infra.Data.Repository
                 id = atividadeId
             }, commandType: CommandType.StoredProcedure);
         }
+
+        public object Edit(Guid atividadeId, string inativar)
+        {
+            var connection = _db.Database.GetDbConnection();
+            return connection.Query("SpAgenda_Edit", new
+            {
+                id = atividadeId,
+                ativo = inativar
+            }, commandType: CommandType.StoredProcedure);
+        }
     }
 }
