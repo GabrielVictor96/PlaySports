@@ -8,7 +8,7 @@ namespace PlaySports.Application.Interfaces
 {
     public interface IAgendaAppService
     {
-        void Add(AgendaViewModel agendaUserViewModel);
+        void Add(AgendaViewModel agendaViewModel);
         Task<IEnumerable<AgendaViewModel>> Atividades(string usuario);
         Task<AgendaViewModel> GetAtividadeByIdAsync(Guid atividadeId);
         object Edit(Guid atividadeId, string inativar);

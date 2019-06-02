@@ -22,6 +22,8 @@ namespace PlaySports.Infra.CrossCutting.IoC
             services.AddScoped<INovoMatchRepository, NovoMatchRepository>();
 
             services.AddScoped<IAgendaRepository, AgendaRepository>();
+
+            services.AddScoped<INotaRepository, NotaRepository>();
         }   
     }
 }

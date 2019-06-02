@@ -4,6 +4,7 @@ using PlaySports.Domain.CommandHandlers;
 using PlaySports.Domain.Commands.AgendaCommands;
 using PlaySports.Domain.Commands.AuthenticationCommands;
 using PlaySports.Domain.Commands.MatchCommands;
+using PlaySports.Domain.Commands.NotaCommands;
 using PlaySports.Domain.Commands.NovoMatchCommands;
 using PlaySports.Domain.Commands.UserCommands;
 using PlaySports.Domain.Core.Notifications;
@@ -27,6 +28,8 @@ namespace PlaySports.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<AddNovoMatchCommand, Unit>, NovoMatchCommandHandler>();
 
             services.AddScoped<IRequestHandler<AddAgendaCommand, Unit>, AgendaCommandHandler>();
+
+            services.AddScoped<IRequestHandler<AddNotaCommand, Unit>, NotaCommandHandler>();
 
         }
     }

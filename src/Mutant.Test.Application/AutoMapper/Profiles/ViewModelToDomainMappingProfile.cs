@@ -3,6 +3,7 @@ using PlaySports.Application.ViewModels;
 using PlaySports.Domain.Commands.AgendaCommands;
 using PlaySports.Domain.Commands.AuthenticationCommands;
 using PlaySports.Domain.Commands.MatchCommands;
+using PlaySports.Domain.Commands.NotaCommands;
 using PlaySports.Domain.Commands.NovoMatchCommands;
 using PlaySports.Domain.Commands.UserCommands;
 using PlaySports.Domain.Core.ValueObjects;
@@ -26,6 +27,8 @@ namespace PlaySports.Application.AutoMapper.Profiles
             CreateMap<NovoMatchViewModel, AddNovoMatchCommand>();
 
             CreateMap<AgendaViewModel, AddAgendaCommand>();
+
+            CreateMap<NotaViewModel, AddNotaCommand>();
         }
     }
 }

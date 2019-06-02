@@ -40,7 +40,7 @@ namespace PlaySports.Controllers
         public async Task<IActionResult> Index(int pagina = 1)
         {
             var users = await _agendaAppService.Atividades(User.Identity.Name);
-     
+            
             
             return View(new PagedList<AgendaViewModel>(users, pagina, 10));
         }
@@ -221,6 +221,7 @@ namespace PlaySports.Controllers
         {
 
             _agendaAppService.Edit(agendaViewModel.Id, "0");
+
 
 
 

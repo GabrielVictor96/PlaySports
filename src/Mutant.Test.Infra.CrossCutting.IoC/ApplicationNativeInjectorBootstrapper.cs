@@ -15,6 +15,7 @@ namespace PlaySports.Infra.CrossCutting.IoC
             services.AddScoped<IMatchAppService, MatchAppService>();
             services.AddScoped<INovoMatchAppService, NovoMatchAppService>();
             services.AddScoped<IAgendaAppService, AgendaAppService>();
+            services.AddScoped<INotaAppService, NotaAppService>();
         }
     }
 }

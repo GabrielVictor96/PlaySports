@@ -17,6 +17,8 @@ namespace PlaySports.Application.AutoMapper.Profiles
             CreateMap<NovoMatch, NovoMatchViewModel>();
 
             CreateMap<Agenda, AgendaViewModel>();
+
+            CreateMap<Nota, NotaViewModel>();
         }
     }
 }
