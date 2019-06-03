@@ -1,0 +1,112 @@
+﻿@model PlaySports.Application.ViewModels.NotaViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+        <h1 class="text-uppercase text-dark font-weight-bold">Detalhes da atividade</h1>
+    </div>
+</div>
+
+<div class="container">
+    <dl class="">
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Criador)</dt>
+        <dd>@Html.DisplayFor(model => model.Criador)</dd>
+    </dl>
+
+
+    @if (@ViewBag.Membro1 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro1</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro1)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro2 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro2</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro2)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro3 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro3</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro3)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro4 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro4</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro4)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro5 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro5</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro5)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro6 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro6</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro6)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro7 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro7</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro7)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro8 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro8</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro8)</dd>
+        </dl>
+    }
+
+    @if (@ViewBag.Membro9 == ViewBag.Usuario)
+    {
+        <dl class="">
+            <dt class="text">Comentário sobre: @ViewBag.Membro9</dt>
+            <dd>@Html.DisplayFor(model => model.NotaMembro9)</dd>
+        </dl>
+    }
+
+
+    <dl class="">
+        <dt class="text-uppercase">Atividade</dt>
+        <dd>@ViewBag.Atividade</dd>
+    </dl>
+
+    <dl class="">
+        <dt class="text-uppercase">Local</dt>
+        <dd>@ViewBag.Local</dd>
+    </dl>
+
+    <dl class="">
+        <dt class="text-uppercase">Data</dt>
+        <dd>@ViewBag.Data</dd>
+    </dl>
+
+
+    <a asp-controller="Match" asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+</div>
+
+   
+

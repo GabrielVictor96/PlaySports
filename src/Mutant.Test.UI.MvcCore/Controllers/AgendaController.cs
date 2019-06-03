@@ -48,13 +48,6 @@ namespace PlaySports.Controllers
             return View(new PagedList<AgendaViewModel>(users, pagina, 10));
         }
         
-        public ActionResult Details(int id)
-        {
-
-
-            return View();
-        }
-
 
         [HttpGet]
         [AllowAnonymous]

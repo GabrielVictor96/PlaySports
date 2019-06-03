@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
+using PlaySports.Domain.Commands.NotaCommands;
 using PlaySports.Domain.Entities;
 using PlaySports.Domain.Interfaces;
 using PlaySports.Infra.Data.Context;
@@ -7,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PlaySports.Infra.Data.Repository
 {
@@ -37,6 +39,15 @@ namespace PlaySports.Infra.Data.Repository
                 notaMembro8 = nota.NotaMembro8,
                 notaMembro9 = nota.NotaMembro9,
 
+            }, commandType: CommandType.StoredProcedure);
+        }
+
+        public Task<ListNotaCommand> GetAtividadeByIdAsync(string atividadeId)
+        {
+            var connection = _db.Database.GetDbConnection();
+            return connection.QueryFirstOrDefaultAsync<ListNotaCommand>("SpNota_Detalhes", new
+            {
+                agendaId = atividadeId
             }, commandType: CommandType.StoredProcedure);
         }
     }

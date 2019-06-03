@@ -7,6 +7,7 @@ using PlaySports.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PlaySports.Application.Services
 {
@@ -29,6 +30,10 @@ namespace PlaySports.Application.Services
             _bus.SendCommand(notaAddCommand);
         }
 
-        
+        public Task<NotaViewModel> GetAtividadeByIdAsync(string atividadeId)
+        {
+            return _mapper.Map<Task<NotaViewModel>>(_notaRepository.GetAtividadeByIdAsync(atividadeId));
+        }
+
     }
 }

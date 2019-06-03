@@ -71,6 +71,7 @@ namespace PlaySports.Controllers
             //Passando os dados da imagem para a viewbag
             ViewBag.DadosImagem = imagemDadosURL;
 
+            ViewBag.Nome = userViewModel.Nome;
 
             return View(userViewModel);
         }

@@ -3,24 +3,28 @@
     ViewData["Title"] = "Detalhes";
 }
 
+
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
         <h1 class="text-uppercase text-dark font-weight-bold">@Html.DisplayFor(model => model.Nome)</h1>
+        <a asp-controller="Nota" asp-action="Index" asp-route-id="@ViewBag.Nome" class="btn btn-lg btn-primary text-uppercase">Ver últimas atividades</a>
     </div>
 </div>
 
 <div class="post-content">
-    <style>
-        img {
-            max-width: 20%;
-            height: auto;
-        }
-    </style>
-    <dl class="container">
-        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Imagem)</dt>
-    </dl>
-    <img src="@ViewBag.DadosImagem">
+        <style>
+            img {
+                max-width: 30%;
+                height: auto;
+            }
+        </style>
+        <dl class="container">
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Imagem)</dt>
+        </dl>
+        <img src="@ViewBag.DadosImagem">   
 </div>
+
+
 <div class="container">
     <dl class="">
         <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Nome)</dt>
@@ -41,8 +45,8 @@
         <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Localizacao)</dt>
         <dd>@Html.DisplayFor(model => model.Localizacao)</dd>
     </dl>
-
-        <a asp-action="Curtir" class="btn btn-primary text-uppercase">Curtir</a>
-        <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+    
+    <a asp-action="Curtir" class="btn btn-primary text-uppercase">Curtir</a>
+    <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
 </div>
 

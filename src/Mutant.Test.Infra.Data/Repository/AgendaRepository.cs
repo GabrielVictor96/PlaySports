@@ -71,5 +71,14 @@ namespace PlaySports.Infra.Data.Repository
                 ativo = inativar
             }, commandType: CommandType.StoredProcedure);
         }
+
+        public Task<IEnumerable<ListAgendaCommand>> ProcurarMembro(string usuario)
+        {
+            var connection = _db.Database.GetDbConnection();
+            return connection.QueryAsync<ListAgendaCommand>("SpAgenda_ProcurarMembro", new
+            {
+                criador = usuario
+            }, commandType: CommandType.StoredProcedure);
+        }
     }
 }

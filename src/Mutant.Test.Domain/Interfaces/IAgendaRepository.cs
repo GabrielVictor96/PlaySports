@@ -13,5 +13,6 @@ namespace PlaySports.Domain.Interfaces
         Task<IEnumerable<ListAgendaCommand>> Atividades(string usuario);
         Task<ListAgendaCommand> GetAtividadeByIdAsync(Guid atividadeId);
         object Edit(Guid atividadeId, string inativar);
+        Task<IEnumerable<ListAgendaCommand>> ProcurarMembro(string usuario);
     }
 }
