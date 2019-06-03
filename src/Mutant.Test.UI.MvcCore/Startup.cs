@@ -78,7 +78,7 @@ namespace PlaySports.UI.MvcCore
             app.UseSession();
             app.UseSignalR(routes =>
             {
-                routes.MapHub<ChatHub>("/chatHub");
+                routes.MapHub<ChatHub>("/chat");
             });
 
             app.UseMvc(routes =>

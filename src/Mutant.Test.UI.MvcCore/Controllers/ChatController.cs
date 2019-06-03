@@ -33,7 +33,7 @@ namespace PlaySports.Controllers
 
 
         [HttpGet]
-        [Route("")]
+        [Route("inicial")]
         public async Task<IActionResult> Index(int pagina = 1)
         {
             string nome = User.Identity.Name;
@@ -68,7 +68,7 @@ namespace PlaySports.Controllers
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route("{id}/details")]
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -87,8 +87,10 @@ namespace PlaySports.Controllers
             //Passando os dados da imagem para a viewbag
             ViewBag.DadosImagem = imagemDadosURL;
 
+            ViewBag.Nome = userViewModel.Nome;
 
-            return View(userViewModel);
+
+            return View();
         }
 
         // GET: Chat/Create
