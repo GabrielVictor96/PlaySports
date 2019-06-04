@@ -88,5 +88,8 @@
     <Content Update="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Update="www\images\favicon.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>
