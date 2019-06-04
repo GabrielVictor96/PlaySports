@@ -14,7 +14,7 @@
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->
   <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
-  <allow-navigation href="http://playsports.gearhostpreview.com/" />
+  <allow-navigation href="https://playsports.azurewebsites.net/" />
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
   <allow-intent href="tel:*" />

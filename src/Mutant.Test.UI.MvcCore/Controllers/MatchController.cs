@@ -43,8 +43,13 @@ namespace PlaySports.Controllers
         
             var users = await _userAppService.Match(userAtual.Localizacao,userAtual.Esporte);
 
-
-
+            foreach (var data in users)
+            {
+                string idade = CalculaIdade(data.DataNascimento, DateTime.Now);
+                
+                data.DataNascimento = Convert.ToDateTime(idade + "/11/2019");
+            }
+         
             return View(new PagedList<UserViewModel>(users, pagina, 10));
         }
 
@@ -72,6 +77,10 @@ namespace PlaySports.Controllers
             ViewBag.DadosImagem = imagemDadosURL;
 
             ViewBag.Nome = userViewModel.Nome;
+
+            string idade = CalculaIdade(userViewModel.DataNascimento, DateTime.Now);
+
+            ViewBag.Idade = idade;
 
             return View(userViewModel);
         }
@@ -130,6 +139,28 @@ namespace PlaySports.Controllers
             {
                 return RedirectToAction("Index");
             }
-        }      
+        }
+
+        private string CalculaIdade(DateTime dNascimento, DateTime dAtual)
+        {
+            try
+            {
+            int idAnos = 0;
+            DateTime dNascimentoCorrente = DateTime.Parse(dNascimento.Day.ToString() + "/" +
+            dNascimento.Month.ToString() + "/" + (dAtual.Year - 1).ToString());
+
+            idAnos = dAtual.Year - dNascimento.Year;
+            if (dAtual.Month < dNascimento.Month || (dAtual.Month ==
+            dNascimento.Month && dAtual.Day < dNascimento.Day))
+            {
+                idAnos--;
+            }
+                     return Convert.ToString(idAnos);
+            }
+            catch (Exception)
+            {
+                     return Convert.ToString(dNascimento);
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@
     onDeviceReady: function () {
         app.receivedEvent('deviceready');
         // Here, we redirect to the web site.
-        var targetUrl = "http://playsports.gearhostpreview.com/";
+        var targetUrl = "https://playsports.azurewebsites.net/";
         var bkpLink = document.getElementById("bkpLink");
         bkpLink.setAttribute("href", targetUrl);
         bkpLink.text = targetUrl;
