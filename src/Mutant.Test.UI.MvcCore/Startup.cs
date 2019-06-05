@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using PlaySports.Hubs;
 using PlaySports.Infra.CrossCutting.IoC;
 
-namespace PlaySports.UI.MvcCore
+namespace PlaySports
 {
     public class Startup
     {
@@ -34,7 +34,8 @@ namespace PlaySports.UI.MvcCore
             services.AddSession();
             services.AddAutoMapper(typeof(Application.AutoMapper.AutoMapperConfig));
             services.AddMvc().AddSessionStateTempDataProvider();
-            services.AddSignalR();
+            //services.AddSignalR();
+            services.AddSignalR().AddAzureSignalR("Endpoint=https://chatplaysports.service.signalr.net;AccessKey=raIpYDV5QKQxsdfBEy7uiV8FGj88RW8vixiExf6aTU8=;Version=1.0;");
 
             services.AddAuthentication(options =>
                 {
@@ -76,7 +77,9 @@ namespace PlaySports.UI.MvcCore
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();
-            app.UseSignalR(routes =>
+
+            app.UseFileServer();
+            app.UseAzureSignalR(routes =>
             {
                 routes.MapHub<ChatHub>("/chat");
             });

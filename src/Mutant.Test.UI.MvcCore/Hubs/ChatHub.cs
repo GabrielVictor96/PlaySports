@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
 using PlaySports.Models;
 using PlaySports.Repositories;
@@ -33,6 +35,11 @@ namespace PlaySports.Hubs
         {
             //Ao usar o método Client(_connections.GetUserId(chat.destination)) eu estou enviando a mensagem apenas para o usuário destino, não realizando broadcast
             await Clients.Client(_connections.GetUserId(chat.destination)).SendAsync("Receive", chat.sender, chat.message);
+        }
+
+        public IEnumerable<string> GetAllUsers()
+        {
+            return _connections.GetAllUser().Select(x => x.name);
         }
     }
 }

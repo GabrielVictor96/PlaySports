@@ -144,5 +144,5 @@ function sendMessage(e) {
 
 //Função genérica para verificar se o elemento já existe na DOM
 function checkIfElementExist(id, data) {
-    return $('section[data-' + data + '="' + id + '"]') && $('section[data-' + data + '="' + id + '"]').length > 0;
+    return $('section[data-' + data + '="' + id + '"]').length; // && $('section[data-' + data + '="' + id + '"]').length > 0;
 }

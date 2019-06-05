@@ -18,6 +18,39 @@
 }
 
 .mvh-15 {
-    margin-bottom: 15vh 
+    margin-bottom: 15vh
 }
 
+/**/
+main > .container {
+    padding-top: 4rem;
+}
+
+/**/
+.navbar-nav .nav-link {
+    padding: .75rem 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+}
+
+/**/
+.card .card-footer {
+    background: #f8f9fa;
+    border-top: 0;
+    padding: .75rem 1rem !important;
+}
+
+    .card .card-footer input[type='text'] {
+        background-color: #fff;
+        -ms-border-radius: 20px;
+        border-radius: 20px;
+        margin-left: .75rem !important;
+        margin-right: .5rem !important;
+    }
+
+    .card .card-footer .btn {
+        -ms-border-radius: 20px;
+        border-radius: 20px;
+        margin-left: .5rem !important;
+        margin-right: .75rem !important
+    }
