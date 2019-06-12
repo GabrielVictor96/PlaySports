@@ -46,7 +46,7 @@ namespace PlaySports.Application.ViewModels
         public string Local { get; set; }
 
         [Display(Name = "Data Atividade")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         public DateTime Data { get; set; }
 
         [Display(Name = "Ativo")]
