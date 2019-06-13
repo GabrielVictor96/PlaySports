@@ -41,6 +41,7 @@
                             <tr>
                                 <td class="w-25">
                                     <a asp-controller="Chat" asp-action="Details" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Conversar</a>
+                                    <a asp-controller="Chat" asp-action="Delete" asp-route-id="@row.Id" class="btn btn-sm btn-danger text-uppercase">Denunciar</a>
                                 </td>
                                 <td>@row.Nome</td>
                                 <td>@row.Sexo</td>
