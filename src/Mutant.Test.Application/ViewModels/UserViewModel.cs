@@ -32,5 +32,8 @@ namespace PlaySports.Application.ViewModels
 
         [Display(Name = "Imagem")]
         public byte[] Imagem { get; set; }
+
+        [Display(Name = "Denúncia")]
+        public string Denuncia { get; set; }
     }
 }

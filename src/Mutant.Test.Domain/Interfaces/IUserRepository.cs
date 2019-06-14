@@ -18,5 +18,6 @@ namespace PlaySports.Domain.Interfaces
         Task<IEnumerable<ListUserCommand>> GetAllAsync();
         Task<IEnumerable<ListUserCommand>> Match(string cidade, string modalidade);
         ListUserCommand GetUserByNome(string nome);
+        void Denuncia(User user);
     }
 }

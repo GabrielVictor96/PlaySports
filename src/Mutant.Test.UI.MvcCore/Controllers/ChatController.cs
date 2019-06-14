@@ -6,6 +6,7 @@ using PlaySports.Application.Interfaces;
 using PlaySports.Application.ViewModels;
 using PlaySports.Domain.Core.Notifications;
 using PlaySports.UI.MvcCore.Controllers;
+using PlaySports.UI.MvcCore.Enums;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace PlaySports.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IMatchAppService _matchAppService;
         private readonly INovoMatchAppService _novoMatchAppService;
+
 
         public ChatController(INotificationHandler<DomainNotification> notifications, IUserAppService userAppService, IMatchAppService matchAppService, INovoMatchAppService novoMatchAppService)
           : base(notifications)
@@ -95,16 +97,38 @@ namespace PlaySports.Controllers
 
         [HttpGet]
         [Route("{id}/delete")]
-        public ActionResult Delete(Guid? id)
+        public async Task<ActionResult> Delete(Guid? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var userViewModel = await _userAppService.GetUserByIdAsync(id.Value);
+            if (userViewModel == null)
+            {
+                return NotFound();
+            }
+
+
+            ViewBag.Nome = userViewModel.Nome;
+
+            return View(userViewModel);
+        }
+
+        [HttpPost, ActionName("Denunciar")]
+        [Route("{id:guid}/denunciar")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Denunciar([Bind("Denuncia")] UserViewModel userViewModel)
         {
 
 
 
+            _userAppService.Denuncia(userViewModel);
 
 
-
-
-            return View();
+            AlertToast("Denúncia", "Denúncia feita com sucesso!", NotificationType.Success);
+            return RedirectToAction("Index");
         }
     }
 }

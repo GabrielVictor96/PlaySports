@@ -75,5 +75,12 @@ namespace PlaySports.Application.Services
         {
             return _mapper.Map<UserViewModel>(_userRepository.GetUserByNome(nome));
         }
+
+
+        public void Denuncia(UserViewModel userViewModel)
+        {
+            var userEditCommand = _mapper.Map<EditUserCommand>(userViewModel);
+            _bus.SendCommand(userEditCommand);
+        }
     }
 }

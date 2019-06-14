@@ -17,5 +17,6 @@ namespace PlaySports.Application.Interfaces
         Task<IEnumerable<UserViewModel>> GetAllAsync();
         Task<IEnumerable<UserViewModel>> Match(string cidade, string modalidade);
         UserViewModel GetUserByNome(string nome);
+        void Denuncia(UserViewModel userViewModel);
     }
 }

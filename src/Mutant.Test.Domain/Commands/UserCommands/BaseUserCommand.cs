@@ -17,5 +17,6 @@ namespace PlaySports.Domain.Commands.UserCommands
         public string ConfirmarSenha { get; protected set; }
         public DateTime DataNascimento { get; protected set; }
         public byte[] Imagem { get; protected set; }
+        public string Denuncia { get; protected set; }
     }
 }

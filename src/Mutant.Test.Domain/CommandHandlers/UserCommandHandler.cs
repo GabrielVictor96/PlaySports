@@ -38,7 +38,7 @@ namespace PlaySports.Domain.CommandHandlers
                 return Unit.Task;
             }
 
-            var user = new User(command.Nome, command.Sexo, command.Login, command.Esporte, command.Nivel, command.Localizacao, command.DataNascimento, command.Imagem);
+            var user = new User(command.Nome, command.Sexo, command.Login, command.Esporte, command.Nivel, command.Localizacao, command.DataNascimento, command.Imagem, command.Denuncia);
             user.FillPassword(command.Senha);
 
             _userRepository.Add(user);
@@ -59,7 +59,7 @@ namespace PlaySports.Domain.CommandHandlers
                 return Unit.Task;
             }
 
-            var user = new User(command.Nome, command.Sexo, command.Login, command.Esporte, command.Nivel, command.Localizacao, command.DataNascimento, command.Imagem);
+            var user = new User(command.Nome, command.Sexo, command.Login, command.Esporte, command.Nivel, command.Localizacao, command.DataNascimento, command.Imagem, command.Denuncia);
             user.FillId(command.Id);
 
             var existingUser = _userRepository.GetUserByLogin(command.Login);

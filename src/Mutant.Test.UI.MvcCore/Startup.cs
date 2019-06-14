@@ -34,7 +34,6 @@ namespace PlaySports
             services.AddSession();
             services.AddAutoMapper(typeof(Application.AutoMapper.AutoMapperConfig));
             services.AddMvc().AddSessionStateTempDataProvider();
-            //services.AddSignalR();
             services.AddSignalR().AddAzureSignalR("Endpoint=https://chatplaysports.service.signalr.net;AccessKey=raIpYDV5QKQxsdfBEy7uiV8FGj88RW8vixiExf6aTU8=;Version=1.0;");
 
             services.AddAuthentication(options =>

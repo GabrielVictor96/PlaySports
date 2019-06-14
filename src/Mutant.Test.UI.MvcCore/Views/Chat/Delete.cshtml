@@ -1,7 +1,31 @@
-﻿
+﻿@model PlaySports.Application.ViewModels.UserViewModel
 @{
     ViewData["Title"] = "Delete";
 }
+
+<div class="container">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+        <h1 class="text-uppercase text-dark font-weight-bold">Denúnciar: @ViewBag.Nome</h1>
+    </div>
+</div>
+
+<div class="container">
+    <form asp-action="Denunciar" class="col-12 col-lg-6">
+        <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Denuncia" class="col-form-label"></label>
+                <input asp-for="Denuncia" class="form-control" />
+                <span asp-validation-for="Denuncia" class="text-danger"></span>
+            </div>
+
+        <input type="hidden" asp-for="Id" />
+
+        <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+        <input type="submit" class="btn btn-danger text-uppercase" value="Denúnciar" />
+
+    </form>
+</div>
 
 
 

@@ -125,5 +125,16 @@ namespace PlaySports.Infra.Data.Repository
                 nome
             }, commandType: CommandType.StoredProcedure);
         }
+
+        public void Denuncia(User user)
+        {
+            var connection = _db.Database.GetDbConnection();
+            connection.Query("SpUser_Denuncia", new
+            {
+                id = user.Id,
+                denuncia = user.Denuncia,
+
+            }, commandType: CommandType.StoredProcedure);
+        }
     }
 }

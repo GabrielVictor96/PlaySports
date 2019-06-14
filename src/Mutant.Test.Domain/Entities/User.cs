@@ -9,7 +9,7 @@ namespace PlaySports.Domain.Entities
     {
         protected User() { }
 
-        public User(string nome, Sexo sexo, string login, string esporte, string nivel, string localizacao, DateTime dataNascimento, byte[] imagem)
+        public User(string nome, Sexo sexo, string login, string esporte, string nivel, string localizacao, DateTime dataNascimento, byte[] imagem, string denuncia)
         {
             Nome = nome;
             Sexo = sexo;
@@ -19,6 +19,7 @@ namespace PlaySports.Domain.Entities
             Nivel = nivel;
             Localizacao = localizacao;
             Imagem = imagem;
+            Denuncia = denuncia;
         }
 
         public string Nome { get; private set; }
@@ -30,6 +31,7 @@ namespace PlaySports.Domain.Entities
         public Password Senha { get; private set; }
         public DateTime DataNascimento { get; private set; }
         public byte[] Imagem { get; private set; }
+        public string Denuncia { get; private set; }
 
         public void FillPassword(string text) => Senha = new Password(text);
     }

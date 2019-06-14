@@ -6,7 +6,7 @@ namespace PlaySports.Domain.Commands.UserCommands
 {
     public class EditUserCommand : BaseUserCommand
     {
-        public EditUserCommand(Guid id, string nome, Sexo sexo, string login, string esporte, string nivel, string localizacao, DateTime dataNascimento, byte[] imagem)
+        public EditUserCommand(Guid id, string nome, Sexo sexo, string login, string esporte, string nivel, string localizacao, DateTime dataNascimento, byte[] imagem, string denuncia)
         {
             Id = id;
             Nome = nome;
@@ -17,6 +17,7 @@ namespace PlaySports.Domain.Commands.UserCommands
             Localizacao = localizacao;
             DataNascimento = dataNascimento;
             Imagem = imagem;
+            Denuncia = denuncia;
         }
 
         public override bool IsValid()
