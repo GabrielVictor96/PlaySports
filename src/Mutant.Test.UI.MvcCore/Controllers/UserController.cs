@@ -23,6 +23,7 @@ namespace PlaySports.UI.MvcCore.Controllers
         private static byte[] imagem;
 
         private static string denuncia;
+        private static string idUsuario;
 
 
         public UserController(INotificationHandler<DomainNotification> notifications, IUserAppService userAppService)
@@ -126,7 +127,7 @@ namespace PlaySports.UI.MvcCore.Controllers
                 imagem = ms.ToArray();
 
             }
-            return RedirectToAction("Edit");
+            return Redirect(idUsuario + "/editar"); 
         }
 
 
@@ -146,6 +147,8 @@ namespace PlaySports.UI.MvcCore.Controllers
             }
 
             denuncia = userViewModel.Denuncia;
+
+            idUsuario = Convert.ToString(userViewModel.Id);
 
             return View(userViewModel);
         }
