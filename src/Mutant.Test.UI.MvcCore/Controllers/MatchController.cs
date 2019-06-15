@@ -81,6 +81,7 @@ namespace PlaySports.Controllers
             string idade = CalculaIdade(userViewModel.DataNascimento, DateTime.Now);
 
             ViewBag.Idade = idade;
+            ViewBag.Denuncia = userViewModel.Denuncia;
 
             return View(userViewModel);
         }

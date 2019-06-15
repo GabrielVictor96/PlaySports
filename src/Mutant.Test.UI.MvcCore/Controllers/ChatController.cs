@@ -23,6 +23,9 @@ namespace PlaySports.Controllers
         private readonly IMatchAppService _matchAppService;
         private readonly INovoMatchAppService _novoMatchAppService;
 
+        private static UserViewModel listUser;
+        private static string denuncia;
+
 
         public ChatController(INotificationHandler<DomainNotification> notifications, IUserAppService userAppService, IMatchAppService matchAppService, INovoMatchAppService novoMatchAppService)
           : base(notifications)
@@ -110,6 +113,7 @@ namespace PlaySports.Controllers
                 return NotFound();
             }
 
+            listUser = userViewModel;
 
             ViewBag.Nome = userViewModel.Nome;
 
@@ -122,9 +126,11 @@ namespace PlaySports.Controllers
         public IActionResult Denunciar([Bind("Denuncia")] UserViewModel userViewModel)
         {
 
+            denuncia = userViewModel.Denuncia;
+            userViewModel = listUser;
+            userViewModel.Denuncia = denuncia;
 
-
-            _userAppService.Denuncia(userViewModel);
+            _userAppService.Edit(userViewModel);
 
 
             AlertToast("Denúncia", "Denúncia feita com sucesso!", NotificationType.Success);

@@ -21,7 +21,9 @@ namespace PlaySports.UI.MvcCore.Controllers
     {
         private readonly IUserAppService _userAppService;
         private static byte[] imagem;
-        
+
+        private static string denuncia;
+
 
         public UserController(INotificationHandler<DomainNotification> notifications, IUserAppService userAppService)
             : base(notifications)
@@ -143,6 +145,8 @@ namespace PlaySports.UI.MvcCore.Controllers
                 return NotFound();
             }
 
+            denuncia = userViewModel.Denuncia;
+
             return View(userViewModel);
         }
 
@@ -152,6 +156,10 @@ namespace PlaySports.UI.MvcCore.Controllers
         {
 
             userViewModel.Imagem = imagem;
+
+            userViewModel.Denuncia = denuncia;
+
+
 
             if (!ModelState.IsValid)
             {

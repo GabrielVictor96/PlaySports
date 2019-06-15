@@ -3,14 +3,14 @@
     ViewData["Title"] = "Detalhes";
 }
 
+@if (@ViewBag.Denuncia != null)
+{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script>
-    swal("Cuidado!", "Este usuário já foi denúnciado!", "warning");
-</script>
-
+    <script>
+        swal("Cuidado!", "Este usuário já foi denúnciado!", "warning");
+    </script>
+}
 
 
 <div class="container">

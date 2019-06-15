@@ -34,7 +34,8 @@ namespace PlaySports.Infra.Data.Repository
                 nivel = user.Nivel,
                 localizacao = user.Localizacao,
                 senha = user.Senha.SenhaCriptografada,
-                imagem = user.Imagem
+                imagem = user.Imagem,
+                denuncia = user.Denuncia
             }, commandType: CommandType.StoredProcedure);
         }
 
@@ -51,7 +52,8 @@ namespace PlaySports.Infra.Data.Repository
                 esporte = user.Esporte,
                 nivel = user.Nivel,
                 localizacao = user.Localizacao,
-                imagem = user.Imagem
+                imagem = user.Imagem,
+                denuncia = user.Denuncia
             }, commandType: CommandType.StoredProcedure);
         }
 
@@ -123,17 +125,6 @@ namespace PlaySports.Infra.Data.Repository
             return connection.QueryFirstOrDefault<ListUserCommand>("SpUser_GetByNome", new
             {
                 nome
-            }, commandType: CommandType.StoredProcedure);
-        }
-
-        public void Denuncia(User user)
-        {
-            var connection = _db.Database.GetDbConnection();
-            connection.Query("SpUser_Denuncia", new
-            {
-                id = user.Id,
-                denuncia = user.Denuncia,
-
             }, commandType: CommandType.StoredProcedure);
         }
     }
