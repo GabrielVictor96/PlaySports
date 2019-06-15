@@ -1,0 +1,72 @@
+﻿@model PlaySports.Application.ViewModels.AgendaViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+        <h1 class="text-uppercase text-dark font-weight-bold">Detalhes Atividade</h1>
+    </div>
+</div>
+<div class="container">
+    <dl class="">
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Criador)</dt>
+        <dd>@Html.DisplayFor(model => model.Criador)</dd>
+
+        @if (Model.Membro1 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro1)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro1)</dd>
+        }
+        @if (Model.Membro2 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro2)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro2)</dd>
+        }
+        @if (Model.Membro3 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro3)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro3)</dd>
+        }
+        @if (Model.Membro4 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro4)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro4)</dd>
+        }
+        @if (Model.Membro5 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro5)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro5)</dd>
+        }
+        @if (Model.Membro6 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro6)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro6)</dd>
+        }
+        @if (Model.Membro7 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro7)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro7)</dd>
+        }
+        @if (Model.Membro8 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro8)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro8)</dd>
+        }
+        @if (Model.Membro9 != "Sem Cadastro")
+        {
+            <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Membro9)</dt>
+            <dd>@Html.DisplayFor(model => model.Membro9)</dd>
+        }
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Atividade)</dt>
+        <dd>@Html.DisplayFor(model => model.Atividade)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Local)</dt>
+        <dd>@Html.DisplayFor(model => model.Local)</dd>
+
+        <dt class="text-uppercase">@Html.DisplayNameFor(model => model.Data)</dt>
+        <dd>@Html.DisplayFor(model => model.Data)</dd>
+    </dl>
+
+    <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+</div>

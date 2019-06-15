@@ -1,0 +1,56 @@
+﻿@using PlaySports.UI.MvcCore.Utils
+@using X.PagedList.Mvc.Core
+@model X.PagedList.PagedList<PlaySports.Application.ViewModels.AgendaViewModel>
+    
+@{
+ViewData["Title"] = "Eventos";
+}
+
+    <div class="container">
+        <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+            <h1 class="text-uppercase text-dark font-weight-bold">Últimos Eventos</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="table-responsive">
+            @if (!Model.Any())
+        {
+            <div class="alert alert-info rounded-0">
+                <h5>Nenhum evento encontrado.</h5>
+            </div>
+        }
+        else
+        {
+            <table class="table table-sm table-light table-hover">
+                <thead>
+                    <tr>
+                        <th class="w-25"></th>
+                        <th class="text-uppercase">Criador</th>
+                        <th class="text-uppercase">Atividade</th>
+                        <th class="text-uppercase">Local</th>
+                        <th class="text-uppercase">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model)
+                    {
+                    <tr>
+                        <td class="w-25">
+                            <a asp-action="Details" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Detalhes</a>
+                            <a asp-action="Avaliacao" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Avaliação</a>
+                        </td>
+                        <td>@row.Criador</td>
+                        <td>@row.Atividade</td>
+                        <td>@row.Local</td>
+                        <td>@row.Data.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { pagina = page }), XPagedListOptions.GetRenderOptions())
+        }
+
+        </div>
+    </div>
