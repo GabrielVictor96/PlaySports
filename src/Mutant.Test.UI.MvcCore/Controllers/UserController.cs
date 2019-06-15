@@ -96,7 +96,6 @@ namespace PlaySports.UI.MvcCore.Controllers
         [Route("registrar")]
         public IActionResult Create([Bind("Nome, Sexo, Login, Esporte, Nivel, Localizacao, Senha, ConfirmarSenha, DataNascimento, Imagem")] RegisterUserViewModel registerUserViewModel)
         {
-
             registerUserViewModel.Imagem = imagem;
 
             if (!ModelState.IsValid)
