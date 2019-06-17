@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace PlaySports.Domain.CommandHandlers
 {
     public class AgendaCommandHandler : CommandHandler,
-        IRequestHandler<AddAgendaCommand>
+        IRequestHandler<AddAgendaCommand>,
+        IRequestHandler<EditAgendaCommand>
     {
         private readonly IMediatorHandler _bus;
         private readonly IAgendaRepository _agendaRepository;
@@ -35,6 +36,27 @@ namespace PlaySports.Domain.CommandHandlers
 
             _agendaRepository.Add(agenda);
 
+            if (Commit())
+            {
+                // raise event
+            }
+
+            return Unit.Task;
+        }
+
+        public Task<Unit> Handle(EditAgendaCommand command, CancellationToken cancellationToken)
+        {
+            if (!command.IsValid())
+            {
+                NotifyValidationErrors(command);
+                return Unit.Task;
+            }
+
+            var agenda = new Agenda(command.Criador, command.Membro1, command.Membro2, command.Membro3, command.Membro4, command.Membro5, command.Membro6, command.Membro7, command.Membro8, command.Membro9, command.Atividade, command.Local, command.Data, command.Ativo);
+            agenda.FillId(command.Id);
+
+
+            _agendaRepository.EditarAgenda(agenda);
             if (Commit())
             {
                 // raise event

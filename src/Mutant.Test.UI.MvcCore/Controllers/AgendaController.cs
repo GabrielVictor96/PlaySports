@@ -240,5 +240,78 @@ namespace PlaySports.Controllers
             AlertToast("Avaliar", "Membros avaliados com sucesso!", NotificationType.Success);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        [Route("{id}/editar")]
+        public async Task<IActionResult> Edit(Guid? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
+            var agendaViewModel = await _agendaAppService.GetAtividadeByIdAsync(id.Value);
+            if (agendaViewModel == null)
+            {
+                return NotFound();
+            }
+
+            string nome = User.Identity.Name;
+            IList<UserViewModel> match = new List<UserViewModel>();
+
+            var listaPrimario = await _novoMatchAppService.ProcurarUsuarioPrimario(nome);
+            if (listaPrimario != null)
+            {
+                foreach (var item in listaPrimario)
+                {
+                    var userSecundario = _userAppService.GetUserByNome(item.UsuarioSecundario);
+
+                    match.Add(userSecundario);
+                }
+            }
+
+            var listaSecundario = await _novoMatchAppService.ProcurarUsuarioSecundario(nome);
+            if (listaSecundario != null)
+            {
+                foreach (var item in listaSecundario)
+                {
+                    var userPrimario = _userAppService.GetUserByNome(item.UsuarioPrimario);
+
+                    match.Add(userPrimario);
+                }
+            }
+
+            IEnumerable list = match.Select(e => e.Nome).ToList();
+
+            ViewBag.usuarios = new SelectList(list);
+
+
+
+            return View(agendaViewModel);
+        }
+
+        [HttpPost]
+        [Route("{id}/editar")]
+        public IActionResult Edit([Bind("Id, Criador, Membro1, Membro2, Membro3, Membro4, Membro5, Membro6, Membro7, Membro8, Membro9, Atividade, Local, Data")] AgendaViewModel agendaViewModel)
+        {
+
+            agendaViewModel.Criador = User.Identity.Name;
+            agendaViewModel.Ativo = "1";
+
+            if (!ModelState.IsValid)
+            {
+                return View(agendaViewModel);
+            }
+
+            _agendaAppService.EditarAgenda(agendaViewModel);
+            if (!OpIsValid())
+            {
+                return View(agendaViewModel);
+            }
+
+
+            AlertToast("Agenda", "Atividade atualizada com sucesso!", NotificationType.Success);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -43,6 +43,29 @@ namespace PlaySports.Infra.Data.Repository
             }, commandType: CommandType.StoredProcedure);
         }
 
+        public void EditarAgenda(Agenda agenda)
+        {
+            var connection = _db.Database.GetDbConnection();
+            connection.Query("SpAgenda_EditAgenda", new
+            {
+                id = agenda.Id,
+                criador = agenda.Criador,
+                membro1 = agenda.Membro1,
+                membro2 = agenda.Membro2,
+                membro3 = agenda.Membro3,
+                membro4 = agenda.Membro4,
+                membro5 = agenda.Membro5,
+                membro6 = agenda.Membro6,
+                membro7 = agenda.Membro7,
+                membro8 = agenda.Membro8,
+                membro9 = agenda.Membro9,
+                atividade = agenda.Atividade,
+                local = agenda.Local,
+                data = agenda.Data,
+                ativo = agenda.Ativo,
+            }, commandType: CommandType.StoredProcedure);
+        }
+
         public Task<IEnumerable<ListAgendaCommand>> Atividades(string usuario)
         {
             var connection = _db.Database.GetDbConnection();

@@ -28,6 +28,7 @@ namespace PlaySports.Infra.CrossCutting.IoC
             services.AddScoped<IRequestHandler<AddNovoMatchCommand, Unit>, NovoMatchCommandHandler>();
 
             services.AddScoped<IRequestHandler<AddAgendaCommand, Unit>, AgendaCommandHandler>();
+            services.AddScoped<IRequestHandler<EditAgendaCommand, Unit>, AgendaCommandHandler>();
 
             services.AddScoped<IRequestHandler<AddNotaCommand, Unit>, NotaCommandHandler>();
 

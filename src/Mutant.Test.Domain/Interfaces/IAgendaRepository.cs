@@ -10,6 +10,7 @@ namespace PlaySports.Domain.Interfaces
     public interface IAgendaRepository
     {
         void Add(Agenda agenda);
+        void EditarAgenda(Agenda agenda);
         Task<IEnumerable<ListAgendaCommand>> Atividades(string usuario);
         Task<ListAgendaCommand> GetAtividadeByIdAsync(Guid atividadeId);
         object Edit(Guid atividadeId, string inativar);

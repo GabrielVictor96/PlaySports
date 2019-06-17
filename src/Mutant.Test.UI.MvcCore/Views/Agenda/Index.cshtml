@@ -41,7 +41,8 @@
 
                                     @if (User.Identity.Name == row.Criador)
                                     {
-                                    <a asp-action="Delete" asp-route-id="@row.Id" class="btn btn-sm btn-danger text-uppercase">Encerrar Atividade</a>
+                                        <a asp-action="Edit" asp-route-id="@row.Id" class="btn btn-sm btn-primary text-uppercase">Editar</a>
+                                        <a asp-action="Delete" asp-route-id="@row.Id" class="btn btn-sm btn-danger text-uppercase">Encerrar Atividade</a>
                                     }
 
                                 </td>

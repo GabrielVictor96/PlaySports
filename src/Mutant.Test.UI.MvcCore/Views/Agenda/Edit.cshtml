@@ -1,0 +1,126 @@
+﻿@using PlaySports.Domain.Core.Enums
+@model PlaySports.Application.ViewModels.AgendaViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container">
+    <div class="jumbotron d-flex flex-wrap flex-row align-items-start justify-content-between">
+        <h1 class="text-uppercase text-dark font-weight-bold">Editar Atividade</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row no-gutters">
+        <form asp-action="Edit" method="post" class="col-12 col-lg-6">
+            <input type="hidden" asp-for="Id" />
+            <h4 class="text-uppercase">Participantes</h4>
+            <div class="form-group">
+                <label asp-for="Criador" class="col-form-label"></label>
+                <input asp-for="Criador" class="form-control" disabled="disabled" value="@User.Identity.Name" />
+                <span asp-validation-for="Criador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro1" class="col-form-label"></label>
+                <select asp-for="Membro1" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro2" class="col-form-label"></label>
+                <select asp-for="Membro2" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro3" class="col-form-label"></label>
+                <select asp-for="Membro3" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro4" class="col-form-label"></label>
+                <select asp-for="Membro4" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro5" class="col-form-label"></label>
+                <select asp-for="Membro5" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro6" class="col-form-label"></label>
+                <select asp-for="Membro6" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro7" class="col-form-label"></label>
+                <select asp-for="Membro7" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro8" class="col-form-label"></label>
+                <select asp-for="Membro8" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membro9" class="col-form-label"></label>
+                <select asp-for="Membro9" class="form-control" asp-items="ViewBag.usuarios">
+                    <option value="">Selecione um participante</option>
+                </select>
+                <span asp-validation-for="Membro9" class="text-danger"></span>
+            </div>
+            <h4 class="text-uppercase">Informações da Atividade</h4>
+            <div class="form-group">
+                <label asp-for="Atividade" class="col-form-label"></label>
+                <select asp-for="Atividade" class="form-control">
+                    <option>Atletismo</option>
+                    <option>Basquete</option>
+                    <option>Capoeira</option>
+                    <option>Corrida de Rua</option>
+                    <option>Futebol</option>
+                    <option>Futsal</option>
+                    <option>Hipismo</option>
+                    <option>Jiu-Jitsu</option>
+                    <option>Karate</option>
+                    <option>Natação</option>
+                    <option>Tênis</option>
+                    <option>Tênis de Mesa</option>
+                    <option>Vôleibol</option>
+                    <option>Xadrez</option>
+                </select>
+                <span asp-validation-for="Atividade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Local" class="col-form-label"></label>
+                <input asp-for="Local" class="form-control" />
+                <span asp-validation-for="Local" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="col-form-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-link text-uppercase">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-primary text-uppercase" />
+            </div>
+        </form>
+        <div class="col-12 col-lg-6">
+            <vc:summary />
+        </div>
+    </div>
+</div>

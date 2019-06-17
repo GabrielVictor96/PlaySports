@@ -29,6 +29,12 @@ namespace PlaySports.Application.Services
             _bus.SendCommand(agendaAddCommand);
         }
 
+        public void EditarAgenda(AgendaViewModel agendaViewModel)
+        {
+            var agendaEditarCommand = _mapper.Map<EditAgendaCommand>(agendaViewModel);
+            _bus.SendCommand(agendaEditarCommand);
+        }
+
         public Task<IEnumerable<AgendaViewModel>> Atividades(string usuario)
         {
             return _mapper.Map<Task<IEnumerable<AgendaViewModel>>>(_agendaRepository.Atividades(usuario));
