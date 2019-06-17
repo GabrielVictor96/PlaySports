@@ -2,7 +2,7 @@ Manual de Instalação PlaySports.
 
 ----------------------------------------------------------
 
-Criação do ambiente:
+Criação do SQL Server no GearHost:
 
 
 Conexão SQLServer.
@@ -14,12 +14,24 @@ Password = Fj85a9H-?sNS
 
 ----------------------------------------------------------
 
-Instale o IIS Express na máquina.
+Instale o IIS Express na máquina para executar localHost.
 
 ----------------------------------------------------------
 
-Antes de iniciar o projeto no Visual Studio, 
-execute os scripts abaixo no Microsoft SQL Server Management Studio.
+Instale o Visual Studio com os complementos do .NET e da platafroma mobile Cordova.
+
+----------------------------------------------------------
+
+Início o projeto na pasta (PlaySports.sln).
+
+----------------------------------------------------------
+
+Pressione F5 ou clique em Iniciar (IIS Express). 
+
+----------------------------------------------------------
+
+Banco já esta hospedado no GearHost, não será necessário a criação do banco novamente.
+Segue abaixo os scripts do SQL Server, tabelas e procedures. 
 
 
 ----------------------------------------------------------
