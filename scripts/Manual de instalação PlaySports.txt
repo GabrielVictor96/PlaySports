@@ -22,7 +22,7 @@ Instale o Visual Studio com os complementos do .NET e da platafroma mobile Cordo
 
 ----------------------------------------------------------
 
-Início o projeto na pasta (PlaySports.sln).
+Inicie o projeto na pasta (PlaySports.sln).
 
 ----------------------------------------------------------
 
