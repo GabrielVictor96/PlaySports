@@ -13,7 +13,7 @@ namespace PlaySports.Infra.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
-            optionBuilder.UseSqlServer(connectionString: "Data Source=den1.mssql8.gear.host;Initial Catalog=playsports;User ID=playsports;Password=Gm47R300-M-U");
+            optionBuilder.UseSqlServer(connectionString: "Data Source=den1.mssql7.gear.host;Initial Catalog=playsports;User ID=playsports;Password=Nd2Ph0s0-!RY");
         }
     }
 }
